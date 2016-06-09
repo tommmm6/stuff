@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!--
+I can't be bothered to make this look pretty.
+Use your imagination :P
+-->
+
+<html>
+	<head>
+		<title>SO YOU WANT TO SEE THE HF OP EH?</title>
+		<style type="text/css">
+			#leSentence { 
+				width: 20em;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>SO YOU WANT TO SEE THE HF OPENING EH? O_O</h1>
+		<p>Well, I can't let ya do that until you've finished the Normal End.</p>
+		<p>When you've finished it, enter the last sentence below (case-sensitive) and you'll be able to see it!</p>
+		
+		<input type="text" id="leSentence">
+		<button id="submitBtn">Go!</button>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha1.js"></script>
+		<script type="text/javascript">
+			function loadDatVideo() {
+				var leSentence = $("#leSentence").val();
+				var leSentenceHashed = CryptoJS.SHA1(leSentence).toString();
+				
+				var redirectScript = document.createElement("script");
+				// GitHub has a limit of 39 characters in username. SHA1 generates 40. SLICING IS NEEDED!
+				redirectScript.src = "http://" + leSentenceHashed.slice(0, 39) + ".github.io/hfop.js";
+				document.body.appendChild(redirectScript);
+				
+			}
+			
+			$("#submitBtn").click(function() {
+				loadDatVideo();
+			})
+			
+			$(document).keyup(function(e) {
+				if (e.which == 13) {
+					loadDatVideo();
+				}
+			})
+		</script>
+	</body>	
+	
+</html>
