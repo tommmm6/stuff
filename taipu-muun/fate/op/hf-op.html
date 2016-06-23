@@ -25,7 +25,20 @@ Use your imagination :P
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha1.js"></script>
-		<script type="text/javascript">
+		
+		<!-- Decided to use this. It's easier. -->
+		<script type="text/javascript">/*
+			$("#submitBtn").click(function() {
+				var passwordScript = document.createElement("script");
+				passwordScript.src = "js/password.js";
+				document.body.appendChild(passwordScript);
+			})
+		
+		
+*/		</script>
+		
+		<!-- This method is too long. I'm too lazy... It shall be commented for now.
+-->		<script type="text/javascript">
 			function loadDatVideo() {
 				var leSentence = $("#leSentence").val();
 				var leSentenceHashed = CryptoJS.SHA1(leSentence).toString();
@@ -46,7 +59,7 @@ Use your imagination :P
 					loadDatVideo();
 				}
 			})
-		</script>
+		</script>		<!-- End comment. -->
 	</body>	
 	
 </html>
